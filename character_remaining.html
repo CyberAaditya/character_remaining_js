@@ -3,11 +3,29 @@
 <title>Character Remaining in TextboxJS</title>
 <script type="text/javascript">
 var maxAmount = 160;
+
     function textCounter(textField,showCountField) {
+        //console.log(textField.value.length);
      if(textField.value.length > maxAmount) {
+        showCountField.style.background = '#FFBFCE';
+        textField.style.color = 'red';
         textField.value = textField.value.substring(0,maxAmount);   
+     } else if(textField.value.length < (maxAmount/2)) {
+        showCountField.value = maxAmount - textField.value.length;   
+        showCountField.style.background = '#9EFFCB';
+        textField.style.color = '#000';
+     } else if(textField.value.length >= (maxAmount/2) && textField.value.length < (maxAmount/1.5) ) {
+        showCountField.value = maxAmount - textField.value.length;   
+        showCountField.style.background = '#FFFFA3';
+        textField.style.color = '#000';
+     } else if(textField.value.length >= (maxAmount/1.5)) {
+        showCountField.value = maxAmount - textField.value.length;   
+        showCountField.style.background = '#FFD1AB';
+        textField.style.color = '#000';
      } else {
         showCountField.value = maxAmount - textField.value.length;   
+        showCountField.style.background = '#FFF';
+        textField.style.color = '#000';
      }
     }
 </script> 
